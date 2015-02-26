@@ -1,0 +1,6 @@
+Para ejecutar el comando
+php composer.phar update
+
+se necesita tener instalado:
+
+curl -sS https://getcomposer.org/installer | php

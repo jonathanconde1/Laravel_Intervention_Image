@@ -17,8 +17,9 @@ public $timestamps = true;
 
 //rules of the image upload form
 public static $upload_rules = array(
-'title'=> 'required|min:3',
-'image'=> 'required|image'
+
+	'name' => 'required',
+	'cover_image'=>'required|image'
 );
 
 

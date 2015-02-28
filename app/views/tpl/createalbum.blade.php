@@ -16,7 +16,8 @@
 			@endif
 			<form name="createnewalbum" method="POST"
 				action="{{URL::route('create_album')}}"
-				enctype="multipart/form-data">
+				enctype="multipart/form-data"
+				files=true>
 				<fieldset>
 					<legend>Creando un Album de Experiencias</legend>
 					<div class="form-group">

@@ -7,7 +7,7 @@
 			@foreach($albums as $album)
 			<div class="col-lg-3">
 				<div class="thumbnail" style="min-height: 514px;">
-					<img alt="{{$album->name}}" src="/albums/{{$album->cover_image}}">
+					<img alt="{{$album->name}}" src="/uploads/{{$album->cover_image}}">
 					<div class="caption">
 					<h3>{{$album->name}}</h3>
 					<p>{{$album->description}}</p>

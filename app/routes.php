@@ -17,13 +17,15 @@ Route::get('/', function()
 });
 */
 
-Route::get('/', array('as' => 'index','uses' => 'ImageController@getList'));
+Route::get('/', array('as' => 'index','uses' => 'AlbumsController@getList'));
+Route::get('/createalbum', array('as' => 'create_album_form','uses' => 'AlbumsController@getForm'));
+Route::post('/createalbum', array('as' => 'create_album','uses' => 'AlbumsController@postCreate'));
 
 //This is for the get event of the index page
 
 //Route::get('/',array('as'=>'index_page','uses'=> 'ImageController@getIndex'));
 //This is for the post event of the index.page
-Route::post('/',array('as'=>'index_page_post','before' =>'csrf', 'uses'=>'ImageController@postIndex'));
+//Route::post('/',array('as'=>'index_page_post','before' =>'csrf', 'uses'=>'ImageController@postIndex'));
 
 //This is to show the image's permalink on our website
 Route::get('snatch/{id}',array('as'=>'get_image_information',

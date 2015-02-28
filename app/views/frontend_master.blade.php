@@ -3,29 +3,44 @@
 <head>
 	<meta http-equiv="content-type"
 	content="text/html; charset=utf-8">
-	<title>Laravel Image Sharing</title>
-	{{HTML::style('css/styles.css')}}
 	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="js/bootstrap.min.js"></script>
+	<style>
+		 body {
+			padding-top: 50px;
+		}
+		.starter-template {
+			padding: 40px 15px;
+			text-align: center;
+		}
+	</style>
+
 </head>
 <body>
-	{{--Your title of the image (and yeah, blade engine has its own commenting, cool, isn't it?)--}}
-	<h2>Your Awesome Image Sharing Website</h2>
-	{{--If there is an error flashdata in session (from form validation), we show the first one--}}
-	@if(Session::has('errors'))
-		<h3 class="error">{{$errors->first()}}</h3>
-	@endif
-
-	{{--If there is an error flashdata in session which is set manually, we will show it--}}
 	
-	@if(Session::has('error'))
-		<h3 class="error">{{Session::get('error')}}</h3>
-	@endif
+<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a class="navbar-brand" href="/">Awesome Albums</a>
 
-	{{--If we have a success message to show, we print it--}}
-	@if(Session::has('success'))
-	<h3 class="error">{{Session::get('success')}}</h3>
-	@endif
-	{{--We yield (get the contents of) the section named 'content' from the view files--}}
+			<div>
+				<ul class="nav navbar-nav">
+					<li><a href="{{URL::route('create_album_form')}}">Create New Album</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+
+	
 	@yield('content')
+
 </body>
 </html>
+
+

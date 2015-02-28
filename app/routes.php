@@ -21,6 +21,8 @@ Route::get('/', array('as' => 'index','uses' => 'AlbumsController@getList'));
 Route::get('/createalbum', array('as' => 'create_album_form','uses' => 'AlbumsController@getForm'));
 Route::post('/createalbum', array('as' => 'create_album','uses' => 'AlbumsController@postCreate'));
 
+Route::get('/album/{id}', array('as' => 'show_album','uses' => 'AlbumsController@getAlbum'));
+
 //This is for the get event of the index page
 
 //Route::get('/',array('as'=>'index_page','uses'=> 'ImageController@getIndex'));

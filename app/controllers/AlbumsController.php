@@ -8,7 +8,7 @@ class AlbumsController extends BaseController{
 	}
 
 
-/*
+
 	public function getAlbum($id){
 	
 		$album = Album::with('Photos')->find($id);
@@ -16,19 +16,20 @@ class AlbumsController extends BaseController{
 		->with('album',$album);
 		
 	}
-*/
+
 	public function getForm(){
 		return View::make('tpl.createalbum');
 	}
 
 	public function postCreate(){
-		$validator = Validator::make(Input::all(),	Image::$upload_rules);
+		$validator = Validator::make(Input::all(),	Photo::$upload_rules);
 
 		if($validator->fails()){
 			return Redirect::route('create_album_form')
 			->withErrors($validator)
 			->withInput();
-		}
+		}else{
+
 		
 		$file = Input::file('cover_image');
 		$random_name = str_random(8);
@@ -43,6 +44,10 @@ class AlbumsController extends BaseController{
 			'cover_image' => $filename,
 		));
 		return Redirect::route('show_album',array('id'=>$album->id));
+
+		}
+		
+		
 	}
 
 

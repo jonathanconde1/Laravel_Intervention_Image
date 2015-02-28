@@ -1,10 +1,15 @@
 <?php
 class ImageController extends BaseController {
+
+
+/*
 public function getIndex()
 {
 //Let's load the form view
 return View::make('tpl.index');
+
 }
+*/
 
 
 public function postIndex(){

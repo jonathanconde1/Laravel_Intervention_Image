@@ -5,6 +5,7 @@
 	content="text/html; charset=utf-8">
 	<title>Laravel Image Sharing</title>
 	{{HTML::style('css/styles.css')}}
+	
 </head>
 <body>
 	{{--Your title of the image (and yeah, blade engine has its own commenting, cool, isn't it?)--}}

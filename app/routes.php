@@ -23,6 +23,9 @@ Route::post('/createalbum', array('as' => 'create_album','uses' => 'AlbumsContro
 Route::get('/deletealbum/{id}', array('as' => 'delete_album','uses' => 'AlbumsController@getDelete'));
 
 Route::get('/album/{id}', array('as' => 'show_album','uses' => 'AlbumsController@getAlbum'));
+//ruta para editar la foto del album
+Route::get('/editAlbum/{id}', array('as' => 'editar_album','uses' => 'AlbumsController@getAlbumEditar'));
+Route::post('/editAlbum', array('as' => 'editar_album_post','uses' => 'AlbumsController@postAlbumEditar'));
 
 Route::get('/addimage/{id}', array('as' => 'add_image','uses' => 'ImageController@getForm'));
 Route::post('/addimage', array('as' => 'add_image_to_album','uses' => 'ImageController@postAdd'));
@@ -30,6 +33,7 @@ Route::get('/deleteimage/{id}', array('as' => 'delete_image','uses' => 'ImageCon
 
 Route::post('/moveimage', array('as' => 'move_image', 'uses' =>'ImageController@postMove'));
 
+//nota para comprimir la foto se puede utilizar save - quality
 
 
 //This is for the get event of the index page

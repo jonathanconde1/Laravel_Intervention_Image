@@ -16,6 +16,47 @@ class AlbumsController extends BaseController{
 		->with('album',$album);
 		
 	}
+	public function getAlbumEditar($id){
+	
+		$album = Album::with('Photos')->find($id);
+		return View::make('tpl.editarimage')
+		->with('album',$album);
+		
+	}
+
+	public function postAlbumEditar (){
+	
+		$filename = Input::get('nombreImagen');
+		$eje_x = Input::get('eje_x');
+		$eje_y = Input::get('eje_y');
+		
+		if(isset($filename)&&isset($eje_y)&&isset($eje_x))
+		{
+			echo "puedo continuar";
+			//modifico al tamaño requerido
+			//Image::make(Config::get( 'image.upload_folder').'/'.$filename)->resizeCanvas($eje_x, $eje_y)
+
+
+			//reescribo el fichero o archivo
+
+			Image::make(Config::get( 'image.upload_folder').'/'.$filename)
+			->resizeCanvas($eje_x, $eje_y)
+			//->resize(Config::get( 'image.thumb_width'),Config::get( 'image.thumb_height'))
+			->save(Config::get( 'image.upload_folder').'/'.$filename);
+
+
+		}else{
+			echo "falta un valor";
+		}
+
+
+		//aqui toda la logica para editar las dimensiones de la imagen
+		
+	}
+
+
+
+
 
 	public function getForm(){
 		return View::make('tpl.createalbum');

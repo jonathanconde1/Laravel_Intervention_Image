@@ -23,6 +23,11 @@
 			<button type="button"
 				class="btn btn-danger btn-large">Delete Album
 			</button></a>
+			<a href="{{URL::route('editar_album',array('id'=>$album->id))}}" 
+				onclick="return confirm('Are you sure?')">
+			Editar Foto de Album
+			</a>
+
 			</div>
 			</div>
 		</div>
@@ -31,7 +36,7 @@
 	@foreach($album->Photos as $photo)
 		<div class="col-lg-3">
 			<div class="thumbnail" style="max-height: 350px; min-height: 350px;">
-				<img alt="{{$album->name}}" src="/uploads/{{$photo->image}}">
+				<img alt="{{$album->name}}" src="/uploads/thumbs/{{$photo->image}}">
 				<div class="caption">
 				<p>{{$photo->description}}</p>
 				

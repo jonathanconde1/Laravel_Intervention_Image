@@ -45,6 +45,24 @@
 						</div>
 						<div class="form-group">
 							
+							<label for="ancla_x">ancla X :</label>
+							<input name="ancla_x" type="text" class="form-control"
+							placeholder="0"
+							value="0">
+						</div>
+
+						<div class="form-group">
+							
+							<label for="ancla_y">ancla Y :</label>
+							<input name="ancla_y" type="text" class="form-control"
+							placeholder="0"
+							value="0">
+
+							<input name="nombreImagen" type="hidden" value="{{$album->cover_image}}">
+						</div>
+
+						<div class="form-group">
+							
 							<label for="eje_x">eje X :</label>
 							<input name="eje_x" type="text" class="form-control"
 							placeholder="{{Image::make('public/uploads/'.$album->cover_image)->width();}}"

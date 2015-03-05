@@ -6,11 +6,11 @@
 			<img class="media-object pull-left"
 				alt="{{$album->name}}" src="/uploads/{{$album->cover_image}}" width="350px">
 			<div class="media-body">
-			<h2 class="media-heading" style="font-size: 26px;">Album Name:</h2>
-			<p>{{$album->name}}</p>
+			<h2 class="media-heading" style="font-size: 26px;">Nombre del Album : {{$album->name}}</h2>
+			
 			<div class="media">
-			<h2 class="media-heading" style="font-size: 26px;">	Album Description :</h2>
-			<p>{{$album->description}}</p>
+			<h2 class="media-heading" style="font-size: 26px;">	Album Description : {{$album->description}}</h2>
+			
 
 			<a href="{{URL::route('add_image',array('id'=>$album->id))}}">
 			<button type="button"

@@ -13,9 +13,10 @@
 /*
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('prueba');
 });
 */
+
 
 Route::get('/', array('as' => 'index','uses' => 'AlbumsController@getList'));
 Route::get('/createalbum', array('as' => 'create_album_form','uses' => 'AlbumsController@getForm'));
@@ -32,6 +33,9 @@ Route::post('/addimage', array('as' => 'add_image_to_album','uses' => 'ImageCont
 Route::get('/deleteimage/{id}', array('as' => 'delete_image','uses' => 'ImageController@getDelete'));
 
 Route::post('/moveimage', array('as' => 'move_image', 'uses' =>'ImageController@postMove'));
+
+
+
 
 //nota para comprimir la foto se puede utilizar save - quality
 

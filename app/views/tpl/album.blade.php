@@ -37,12 +37,19 @@
 		@foreach($album->Photos as $photo)
 			<div class="col-lg-3">
 				<div class="thumbnail" style="max-height: 350px; min-height: 350px;">
+					<a href="/uploads/thumbs/{{$photo->image}}" rel="prettyPhoto" title="This is the description">
 					<img alt="{{$album->name}}" src="/uploads/thumbs/{{$photo->image}}">
+					
+					</a>
+					
 					<div class="caption">
 					<p>{{$photo->description}}</p>
 					
-					<p><p>Created date: {{ date("d F Y",strtotime($photo->created_at)) }} at {{ date("g:ha",strtotime($photo->created_at)) }}
-					</p></p>
+					<p>
+						<p>
+						Created date: {{ date("d F Y",strtotime($photo->created_at)) }} at {{ date("g:ha",strtotime($photo->created_at)) }}
+						</p>
+					</p>
 					<a href="{{URL::route('delete_image',array('id'=>$photo->id))}}" 
 						onclick="return confirm('Are you sure?')">
 						<button type="button" class="btn btn-danger btn-small">
@@ -53,6 +60,13 @@
 			</div>
 		@endforeach
 		</div>
+
+
+
 	</div>
+		
+
 </div>
+
+
 @stop

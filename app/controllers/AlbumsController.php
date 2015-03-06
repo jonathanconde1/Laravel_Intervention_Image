@@ -25,10 +25,17 @@ class AlbumsController extends BaseController{
 	}
 
 	public function postAlbumEditar (){
+
+		
 	
 		$filename = Input::get('nombreImagen');
+		
+		$alto = Image::make('public/uploads/'.$filename)->height();
+		$ancho= Image::make('public/uploads/'.$filename)->width();
+
 		$ancla_x = Input::get('ancla_x');
 		$ancla_y = Input::get('ancla_y');
+
 
 		$eje_x = Input::get('eje_x');
 		$eje_y = Input::get('eje_y');
@@ -45,7 +52,7 @@ class AlbumsController extends BaseController{
 
 
 			Image::make(Config::get( 'image.upload_folder').'/'.$filename)
-			->resizeCanvas($eje_x - $ancla_x,$eje_y -  $ancla_y,'bottom-right',false)
+			->resizeCanvas($ancho - $ancla_x, $alto -  $ancla_y,'bottom-right',false)
 			->resizeCanvas($eje_x, $eje_y,'top-left',false)
 			//->resize(Config::get( 'image.thumb_width'),Config::get( 'image.thumb_height'))
 			->save(Config::get( 'image.upload_folder').'/'.$filename);

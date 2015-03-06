@@ -33,13 +33,13 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class='list-group gallery'>
+		<div id="main" class="gallery clearfix">
 		@foreach($album->Photos as $photo)
 			<div class="col-lg-3">
 				<div class="thumbnail" style="max-height: 350px; min-height: 350px;">
-					<a href="/uploads/thumbs/{{$photo->image}}" rel="prettyPhoto" title="This is the description">
+					<a href="/uploads/{{$photo->image}}" rel="prettyPhoto[gallery2]" title="Aqui la Descripción de la imagen">
 					<img alt="{{$album->name}}" src="/uploads/thumbs/{{$photo->image}}">
-					
+					Holasss
 					</a>
 					
 					<div class="caption">
@@ -51,7 +51,7 @@
 						</p>
 					</p>
 					<a href="{{URL::route('delete_image',array('id'=>$photo->id))}}" 
-						onclick="return confirm('Are you sure?')">
+						onclick="return confirm('Are you sure?')" >
 						<button type="button" class="btn btn-danger btn-small">
 							Delete Image 
 						</button></a>
@@ -64,9 +64,6 @@
 
 
 	</div>
-		
 
 </div>
-
-
 @stop

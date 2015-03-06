@@ -7,44 +7,16 @@
 		<!--script src="js/jquery.lint.js" type="text/javascript" charset="utf-8"></script-->
 		<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
 		<script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
-		
-		<style type="text/css" media="screen">
-			* { margin: 0; padding: 0; }
-			
-			body {
-				background: #282828;
-				font: 62.5%/1.2 Arial, Verdana, Sans-Serif;
-				padding: 0 20px;
-			}
-			
-			h1 { font-family: Georgia; font-style: italic; margin-bottom: 10px; }
-			
-			h2 {
-				font-family: Georgia;
-				font-style: italic;
-				margin: 25px 0 5px 0;
-			}
-			
-			p { font-size: 1.2em; }
-			
-			ul li { display: inline; }
-			
-			.wide {
-				border-bottom: 1px #000 solid;
-				width: 4000px;
-			}
-			
-			.fleft { float: left; margin: 0 20px 0 0; }
-			
-			.cboth { clear: both; }
-			
-			#main {
-				background: #fff;
-				margin: 0 auto;
-				padding: 30px;
-				width: 1000px;
-			}
-		</style>
+		{{HTML::style('css/styles.css')}}
+		<style>
+		 body {
+			padding-top: 50px;
+		}
+		.starter-template {
+			padding: 40px 15px;
+			text-align: center;
+		}
+	</style>
 
 
 

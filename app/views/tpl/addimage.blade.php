@@ -45,6 +45,7 @@
 		nuevo
 		<form class="dropzone dz-clickable" method="POST" action="/upload">
 		<div class="dz-message">
+		<input type="hidden" name="album_id" value="{{$album->id}}" />
 		<h4>Drag Photos to Upload</h4>
 		<span>Or click to browse</span>
 		</div>

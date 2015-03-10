@@ -9,11 +9,24 @@ class ImageController extends BaseController{
 
 	public function postDrop(){
 		$file = Input::file('file');
-	    $extension = File::extension($file->getClientOriginalName());
-	    $directory = 'public/img/profile_pics/';
-	    $filename =  "profile.".$extension;
+		$random_name = str_random(8);
+	    $destinationPath = Config::get( 'image.upload_folder');
+	    $extension = $file->getClientOriginalExtension();
+	    $filename=$random_name.'_album_image.'.$extension;
 
-	    $upload_success = Input::file('file')->move($directory, $filename); 
+	    
+	    $uploadSuccess = Input::file('file')->move($destinationPath, $filename);
+
+		Image::make(Config::get( 'image.upload_folder').'/'.$filename)
+		->resize(Config::get( 'image.thumb_width'),Config::get( 'image.thumb_height'))->save(Config::get
+		( 'image.thumb_folder').'/'.$filename);
+
+		//aqui falla por que no encuentra el id del album
+		Photo::create(array(
+			'description' => '',
+			'image' => $filename,
+			'album_id'=> Input::get('album_id')
+		));
 
 		/*
 		$file = Input::file('file');

@@ -34,6 +34,7 @@ Route::get('/deleteimage/{id}', array('as' => 'delete_image','uses' => 'ImageCon
 
 Route::post('/moveimage', array('as' => 'move_image', 'uses' =>'ImageController@postMove'));
 
+Route::post('/upload','ImageController@postDrop');
 
 
 

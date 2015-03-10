@@ -42,6 +42,13 @@
 				</button>
 			</fieldset>
 		</form>
+		nuevo
+		<form class="dropzone dz-clickable" method="POST" action="/upload">
+		<div class="dz-message">
+		<h4>Drag Photos to Upload</h4>
+		<span>Or click to browse</span>
+		</div>
+		</form>
 	</div>
 </div> <!-- /container -->
 @stop

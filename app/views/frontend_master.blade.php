@@ -8,8 +8,11 @@
 
 		<script src="/js/jquery-1.11.0.min.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+		<link rel="stylesheet" href="/css/dropzone.css" media="all">
 		<script src="/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/js/presentacion_fotos.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/dropzone.js" type="text/javascript" charset="utf-8"></script>
+
 		<style>
 		 body {
 			padding-top: 50px;

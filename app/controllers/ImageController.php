@@ -7,6 +7,42 @@ class ImageController extends BaseController{
 		->with('album',$album);
 	}
 
+	public function postDrop(){
+		$file = Input::file('file');
+	    $extension = File::extension($file->getClientOriginalName());
+	    $directory = 'public/img/profile_pics/';
+	    $filename =  "profile.".$extension;
+
+	    $upload_success = Input::file('file')->move($directory, $filename); 
+
+		/*
+		$file = Input::file('file');
+
+		
+
+		$random_name = str_random(8);
+		$destinationPath = Config::get( 'image.upload_folder');
+		$extension = $file->getClientOriginalExtension();
+		$filename=$random_name.'_album_image.'.$extension;
+		$uploadSuccess = Input::file('file')->move($destinationPath, $filename);
+		
+		//aqui uso Intervention Image para modificar la imagen a las dimensiones que se requieran
+		Image::make(Config::get( 'image.upload_folder').'/'.$filename)
+		->resize(Config::get( 'image.thumb_width'),Config::get( 'image.thumb_height'))->save(Config::get
+		( 'image.thumb_folder').'/'.$filename);
+
+
+
+		Photo::create(array(
+			'description' => Input::get('description'),
+			'image' => $filename,
+			'album_id'=> Input::get('album_id')
+		));
+
+*/
+
+	}
+
 	public function postAdd(){
 		$rules = array(
 		'album_id' => 'required|numeric|exists:albums,id',
@@ -15,12 +51,16 @@ class ImageController extends BaseController{
 		$validator = Validator::make(Input::all(), $rules);
 		if($validator->fails()){
 			return Redirect::route('add_image',array('id' =>
-			Input::get('album_id')))
+			Input::get('album_/*id')))
 			->withErrors($validator)
 			->withInput();
 		}
 	
 		$file = Input::file('image');
+		
+
+		
+
 		$random_name = str_random(8);
 		$destinationPath = Config::get( 'image.upload_folder');
 		$extension = $file->getClientOriginalExtension();
@@ -41,6 +81,7 @@ class ImageController extends BaseController{
 		));
 		return Redirect::route('show_album',
 		array('id'=>Input::get('album_id')));
+		
 	}
 
 	public function getDelete($id){

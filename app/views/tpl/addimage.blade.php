@@ -43,13 +43,58 @@
 			</fieldset>
 		</form>
 		nuevo
-		<form class="dropzone dz-clickable" method="POST" action="/upload">
+		<form class="dropzone dz-clickable" method="POST" action="/upload" id ="my-dropzone">
 		<div class="dz-message">
 		<input type="hidden" name="album_id" value="{{$album->id}}" />
 		<h4>Drag Photos to Upload</h4>
 		<span>Or click to browse</span>
 		</div>
+			
+			<input class="btn btn-default" type="button" id="cargar_todo"
+			value="Guardar Fotos" 
+			onclick="hola()" 
+					>
 		</form>
+
+
+
+
+
+		<script type="text/javascript">
+		
+		
+
+$(document).ready(function(){
+	//aqui estoy capturando eventos XD
+
+	var myDropzone = new Dropzone("#my-dropzone");
+			  
+			  /*
+				//probando los eventos de dropzone
+			  myDropzone.on("removedfile", function(file) {
+			     //Maybe display some more file information on your page 
+			    alert('borrado');
+				    
+			  });
+
+
+			  myDropzone.on("addedfile", function(file) {
+			    alert('cargado');
+			  });
+			*/
+		
+	$("#cargar_todo").click(function(){
+		//espero el evento click del boton para cargar todas las imagenes
+		myDropzone.processQueue();
+		//alert("evento cargado ... XD");
+	});
+
+});
+
+	
+	
+		</script>
+		
 	</div>
 </div> <!-- /container -->
 @stop
